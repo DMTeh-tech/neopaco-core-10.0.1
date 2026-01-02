@@ -4,7 +4,7 @@ html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEOPACO CORE 10.0.1 | The Monolith</title>
+    <title>NEOPACO CORE 10.0.1 | Full Trinity Control</title>
     <style>
         :root {
             --neon-green: #00ff00;
@@ -20,17 +20,13 @@ html
             line-height: 1.4;
         }
         .container { max-width: 900px; margin: auto; border: 1px solid #222; padding: 30px; background: #000; box-shadow: 0 0 20px rgba(0,255,0,0.1); }
-        
         h1 { border-bottom: 2px solid var(--neon-green); padding-bottom: 10px; text-align: center; letter-spacing: 5px; }
-        h2 { margin-top: 0; display: flex; justify-content: space-between; }
-        
         .manifesto-header { text-align: center; font-size: 0.9em; margin-bottom: 30px; color: #888; }
         
         .optimizer { 
             margin-bottom: 25px; 
             padding: 20px; 
-            border: 1px solid var(--neon-green); 
-            position: relative;
+            border: 1px solid; 
             transition: all 0.3s ease;
         }
         
@@ -47,102 +43,111 @@ html
             cursor: pointer; 
             border: 1px solid #333;
             font-size: 0.85em;
+            color: #fff;
         }
-        .code:hover { background: #1a1a1a; border-color: #555; }
+        .code:hover { background: #1a1a1a; border-color: #fff; }
 
-        .controls label { display: block; margin-top: 15px; font-size: 0.9em; }
-        input[type=range] { width: 100%; cursor: crosshair; accent-color: var(--neon-green); }
+        .controls label { display: block; margin-top: 10px; font-size: 0.8em; }
+        input[type=range] { width: 100%; cursor: crosshair; }
         
-        .status-bar { 
-            margin-top: 30px; 
-            padding: 10px; 
-            border-top: 1px solid #333; 
-            font-size: 0.8em; 
-            display: flex; 
-            justify-content: space-between;
-            color: #666;
-        }
-        .active-dot { color: var(--neon-green); animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
+        .v1 input[type=range] { accent-color: var(--neon-blue); }
+        .v2 input[type=checkbox] { cursor: pointer; }
+        .adam-x input[type=range] { accent-color: var(--neon-green); }
         
         .tag { font-size: 0.6em; padding: 2px 6px; border: 1px solid; vertical-align: middle; margin-left: 10px; }
+        .status-bar { margin-top: 30px; font-size: 0.8em; display: flex; justify-content: space-between; color: #666; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>NEOPACO CORE 10.0.1</h1>
-        <div class="manifesto-header">
-            [M] TOTAL_SYNC_2026 | MASTER-NODE 9.1 | RESTRICTED OPEN SOURCE 🔘
-        </div>
+        <div class="manifesto-header">[M] TOTAL_SYNC_2026 | TRINITY INTERFACE 🔘</div>
 
         <!-- ADAM V1: SPEED-CORE -->
         <div class="optimizer v1">
             <h2>[AI] V1 (SPEED-CORE) <span class="tag">LEGACY 2025</span></h2>
-            <p>Импульсный скачок. Фиксированная сальтация. Оптимизация сходимости +47.25%.</p>
-            <div class="code" onclick="copyText(this)">optimizer = SaltatoryAdamV1(model.parameters(), lr=1e-3, leap_factor=0.55)</div>
+            <p>Фиксированная сальтация. Leap Factor: <span id="v1Val">0.55</span></p>
+            <div class="controls">
+                <label>Leap Factor (Сила прыжка): <input type="range" id="v1Slider" min="0.1" max="0.9" step="0.05" value="0.55"></label>
+            </div>
+            <div class="code" id="codeV1" onclick="copyText(this)">...</div>
         </div>
 
         <!-- ADAM V2: EXPLORER -->
         <div class="optimizer v2">
             <h2>[AI] V2 (EXPLORER) <span class="tag">ADAPTIVE</span></h2>
-            <p>Адаптивная нейро-синхронизация. Поиск пути через волатильность градиента [2-Пилот].</p>
-            <div class="code" onclick="copyText(this)">optimizer = SaltatoryAdamV2(model.parameters(), lr=1e-3, adaptive=True)</div>
+            <p>Адаптивный режим: <span id="v2Status">ON</span></p>
+            <div class="controls">
+                <label><input type="checkbox" id="v2Check" checked> Включить динамический поиск пути</label>
+            </div>
+            <div class="code" id="codeV2" onclick="copyText(this)">...</div>
         </div>
 
         <!-- ADAM X: WARP-CORE -->
         <div class="optimizer adam-x">
-            <h2>[AI] X (WARP-CORE) <span class="tag">PRODUCTION 2026</span></h2>
-            <p>Инопланетный подшипник. 4D-прокол. Zero-Friction Mechanism 👽</p>
-            <p style="font-size: 0.8em; color: #888;">[Warp: <span id="warpVal">1.5</span>, Friction: <span id="frictionVal">1e-9</span>]</p>
-            
+            <h2>[AI] X (WARP-CORE) <span class="tag">PROD 2026</span></h2>
+            <p>Warp: <span id="warpVal">1.5</span> | Friction: <span id="frictionVal">1e-9</span></p>
             <div class="controls">
-                <label>Warp Factor (Ускорение): <input type="range" id="warpSlider" min="1.0" max="5.0" step="0.1" value="1.5"></label>
-                <label>Friction Threshold (Порог шума): <input type="range" id="frictionSlider" min="1e-10" max="1e-7" step="1e-10" value="1e-9"></label>
+                <label>Warp Factor: <input type="range" id="warpSlider" min="1.0" max="5.0" step="0.1" value="1.5"></label>
+                <label>Friction Threshold: <input type="range" id="frictionSlider" min="1e-10" max="1e-7" step="1e-10" value="1e-9"></label>
             </div>
-            
-            <div class="code" id="codeXSnippet" onclick="copyText(this)">
-...синхронизация Adam X...
-            </div>
+            <div class="code" id="codeX" onclick="copyText(this)">...</div>
         </div>
 
         <div class="status-bar">
-            <span>STATUS: <span class="active-dot">●</span> [M]SYNC_TRUE</span>
-            <span>INTEL: ADAM X WARP-DRIVE ACTIVE</span>
-            <span>CORE: LOCK 🔘</span>
+            <span>STATUS: [M]SYNC_TRUE 🟢</span>
+            <span>2-ПИЛОТ: АКТИВЕН</span>
+            <span>CORE: 🔘</span>
         </div>
     </div>
 
     <script>
+        // Копирование
+        function copyText(element) {
+            navigator.clipboard.writeText(element.textContent.trim());
+            alert("Код скопирован: " + element.id);
+        }
+
+        // Обновление V1
+        const v1Slider = document.getElementById('v1Slider');
+        const v1Val = document.getElementById('v1Val');
+        const codeV1 = document.getElementById('codeV1');
+        function updateV1() {
+            v1Val.textContent = v1Slider.value;
+            codeV1.textContent = `optimizer = SaltatoryAdamV1(\n    model.parameters(), \n    lr=1e-3, \n    leap_factor=${v1Slider.value}\n)`;
+        }
+
+        // Обновление V2
+        const v2Check = document.getElementById('v2Check');
+        const v2Status = document.getElementById('v2Status');
+        const codeV2 = document.getElementById('codeV2');
+        function updateV2() {
+            const isActive = v2Check.checked;
+            v2Status.textContent = isActive ? "ON" : "OFF";
+            codeV2.textContent = `optimizer = SaltatoryAdamV2(\n    model.parameters(), \n    lr=1e-3, \n    adaptive=${isActive ? 'True' : 'False'}\n)`;
+        }
+
+        // Обновление X
         const warpSlider = document.getElementById('warpSlider');
         const frictionSlider = document.getElementById('frictionSlider');
         const warpVal = document.getElementById('warpVal');
         const frictionVal = document.getElementById('frictionVal');
-        const codeXSnippet = document.getElementById('codeXSnippet');
-
-        function updateCode() {
-            const warp = warpSlider.value;
-            const frictionRaw = frictionSlider.value;
-            const frictionExp = Number(frictionRaw).toExponential(1);
-            
-            warpVal.textContent = warp;
-            frictionVal.textContent = frictionExp;
-            
-            codeXSnippet.textContent = `optimizer = SaltatoryAdamX(\n    model.parameters(), \n    lr=1e-3, \n    warp_factor=${warp}, \n    friction_threshold=${frictionExp}\n)`;
+        const codeX = document.getElementById('codeX');
+        function updateX() {
+            const fExp = Number(frictionSlider.value).toExponential(1);
+            warpVal.textContent = warpSlider.value;
+            frictionVal.textContent = fExp;
+            codeX.textContent = `optimizer = SaltatoryAdamX(\n    model.parameters(), \n    lr=1e-3, \n    warp_factor=${warpSlider.value}, \n    friction_threshold=${fExp}\n)`;
         }
 
-        function copyText(element) {
-            navigator.clipboard.writeText(element.textContent.trim());
-            const originalColor = element.style.borderColor;
-            element.style.borderColor = '#ffffff';
-            setTimeout(() => { element.style.borderColor = originalColor; }, 200);
-            console.log("Code synchronized to clipboard.");
-        }
+        // Слушатели
+        v1Slider.addEventListener('input', updateV1);
+        v2Check.addEventListener('change', updateV2);
+        warpSlider.addEventListener('input', updateX);
+        frictionSlider.addEventListener('input', updateX);
 
-        warpSlider.addEventListener('input', updateCode);
-        frictionSlider.addEventListener('input', updateCode);
-        
-        // Initial init
-        updateCode();
+        // Инициализация
+        updateV1(); updateV2(); updateX();
     </script>
 </body>
 </html>
