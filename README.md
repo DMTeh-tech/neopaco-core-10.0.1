@@ -1,3 +1,11 @@
+# NEOPACO Core 10.0.1
+> **Topological Containment & Dynamic Logic System**
+
+<p align="center">
+  <img src="assets/chronon.png" width="400" alt="The Chronon Phase">
+</p>
+
+*Визуализация Хронона: Топологическая проекция динамики системы в пространстве $S^3$.*
 ![Topological Phase Transition](IMG_7715.png)
 
 *Визуализация фазового перехода и генерации Хронона в рамках архитектуры NEOPACO.*# neopaco-core-10.0.1
