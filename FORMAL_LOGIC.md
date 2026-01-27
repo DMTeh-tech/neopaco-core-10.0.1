@@ -14,3 +14,7 @@ Definition: The Radius of Semantic Containment (\(R\)) Определение: 
 
 **Axiomatic Statement:** The $S^3$ manifold exerts a repulsive force $P_{res} \propto 1/R^2$ against dynamics $T^4$ to ensure Topological Homeostasis.
 **Русский:** Многообразие $S^3$ создает силу отталкивания $P_{res} \propto 1/R^2$ против динамики $T^4$, обеспечивая топологический гомеостаз.
+### Axiom V: The Law of Orthogonal Decay / Аксиома V: Закон ортогонального распада
+
+**Axiomatic Statement:** To prevent entropic heat death of the 27x27 Matrix, information vectors with relevance $\omega < \epsilon$ are projected into orthogonal space, maintaining the purity of Radius $R$.
+**Русский:** Чтобы предотвратить энтропийную тепловую смерть матрицы 27x27, информационные векторы с релевантностью $\omega < \epsilon$ проецируются в ортогональное пространство, сохраняя чистоту Радиуса $R$.
