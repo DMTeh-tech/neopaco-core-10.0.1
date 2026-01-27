@@ -18,3 +18,15 @@ Definition: The Radius of Semantic Containment (\(R\)) Определение: 
 
 **Axiomatic Statement:** To prevent entropic heat death of the 27x27 Matrix, information vectors with relevance $\omega < \epsilon$ are projected into orthogonal space, maintaining the purity of Radius $R$.
 **Русский:** Чтобы предотвратить энтропийную тепловую смерть матрицы 27x27, информационные векторы с релевантностью $\omega < \epsilon$ проецируются в ортогональное пространство, сохраняя чистоту Радиуса $R$.
+markdown
+## Geometric Formalism (Update: 2026-01-25) / Геометрический формализм
+
+### 1. The S3/T4 Coupling (The Hopf Fibration) / Связь S3/T4 (Расслоение Хопфа)
+Система определяется как Трисфера $S^3$, выступающая в роли топологического контейнмента для динамического Тесеракт-Тора $T^4$. 
+*   **Equation of State:** $x^2 + y^2 + z^2 + w^2 = R^2$ (Стабильность оболочки).
+*   **Mechanism:** Потоки энергии $T^4$ замкнуты внутри слоев Хопфа. Энергия/информация циркулирует бесконечно, не достигая сингулярности.
+
+### 2. The Chronon Definition / Определение Хронона
+Время ($t$) не является внешней координатой, а порождается внутри системы.
+*   **Definition:** 1 Chronon = $d\theta$ (полный оборот Тесеракта-Тора внутри $S^3$).
+*   **Topological Homeostasis:** Сопротивление кривизны $S^3$ (Аксиома IV) предотвращает коллапс системы, балансируя центростремительные силы Тора.
