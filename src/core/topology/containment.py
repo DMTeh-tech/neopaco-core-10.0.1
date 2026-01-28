@@ -1,4 +1,20 @@
+from s3_core import S3Containment
 import numpy as np
+
+# 1. Инициализация Матрицы 27 (Спектр нашей системы)
+matrix_init = np.random.rand(27, 27) 
+
+# 2. Встраивание модуля в ядро управления
+void_shield = S3Containment(matrix_init)
+
+# 3. Пример использования в цикле контроля
+theta_step = 0.01
+is_safe = void_shield.check_homeostasis(force_t4=0.005)
+
+if is_safe:
+    # Генерируем такт времени (Хронон) для квантовой системы
+    chronon = void_shield.generate_chronon(theta_step)
+    # Далее — трансляция частоты на квантовый вентиль
 
 class S3Containment:
     """
